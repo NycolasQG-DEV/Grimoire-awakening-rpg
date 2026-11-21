@@ -1,65 +1,71 @@
-# projeto-blackclover
+# ⚔️ Grimoire: Awakening RPG
 
-Jogo 2D de exploração procedural feito com **Phaser 4.2**, **React 19**, **TypeScript** e **Vite**. O mundo usa tiles de **16 × 16 px**, chunks de **32 × 32 tiles** e uma extensão lógica de **5.000 × 5.000 tiles**.
+Um RPG 2D de exploração em mundo aberto ambientado no universo de fantasia e magia inspirado em Black Clover. O jogo conta com um vasto mundo procedural de **5.000 × 5.000 tiles**, múltiplos biomas únicos, transições de terreno com autotiling inteligente, sistema de oclusão de copas de árvores e renderização otimizada em tempo real.
 
-## Requisitos
+---
 
-- Node.js 22 ou compatível com Vite 8 e o modo `--experimental-strip-types` do script de histogramas.
-- Dependências instaladas com `npm ci`.
+## 🎮 Controles do Jogo
 
-## Desenvolvimento
+| Tecla / Ação | Função |
+| :--- | :--- |
+| **W, A, S, D** ou **Setas** | Movimentar o personagem |
+| **Shift** | Correr |
+| **Scroll do Mouse** | Controlar o zoom da câmera (1× a 4×) |
+| **M** | Abrir / fechar o Minimapa do mundo |
+| **R** ou **Espaço** | Gerar um novo mundo procedural (nova seed) |
+| **F2** | Exibir / ocultar HUD de informações do bioma |
 
-```bash
-npm run dev
-```
+---
 
-## Scripts
+## 🗺️ Características do Mundo
 
-```bash
-npm run build            # typecheck e build de produção
-npm run lint             # Oxlint
-npm run assets            # deriva sprites e atlas a partir dos sheets originais
-npm run biome-histogram   # amostra cinco seeds e imprime o histograma dos biomas
-npm run test:occlusion    # testa máscara, ordenação, histerese e suavização
-npm run shots             # captura os biomas no navegador (Puppeteer + Chromium)
-```
+- **Mundo Vasto e Procedural:** Mais de 5.000 × 5.000 tiles (80.000 × 80.000 pixels) gerados através de ruído Perlin multicamadas (continentes, relevo, umidade, temperatura e corpos d'água).
+- **Diversidade de Biomas:**
+  - 🌲 **Planícies e Bosques Temperados:** Vegetação viva com árvores frondosas e folhagens interativas.
+  - 🍂 **Bosque Outonal:** Árvores douradas e âmbar com rica variedade florestal.
+  - 🌲 **Taiga e Floresta Ancestral:** Bosques densos e caminhos sombreados.
+  - 🏔️ **Montanhas Rochosas:** Terrenos escarpados com transições rochosas e minérios.
+  - 🏜️ **Terras Secas e Praias:** Dunas de areia fina, orlas litorâneas e vegetação árida.
+  - ❄️ **Tundra e Geleiras:** Águas congeladas e pinheiros cobertos de neve.
+  - 🌿 **Pântano:** Terrenos úmidos e vegetação densa.
+- **Transições Suaves (Autotiling):** Conexões orgânicas e naturais entre diferentes tipos de solo (grama, pedra, areia, água e gelo) utilizando algoritmos de autotile de 47 variações.
+- **Oclusão Dinâmica de Árvores:** O personagem fica visível através de transparência suave e gradual ao passar por trás de copas e troncos altos.
+- **Alto Desempenho:** Carregamento inteligente por chunks sob demanda, com pré-renderização de 10 tiles além da visão da câmera e descarte imediato de áreas distantes da memória para máxima fluidez a 60 FPS.
 
-O gerador de assets grava em `public/assets/generated/trees/`; os PNGs originais em `public/assets/props/trees/` não são modificados. O atlas gerado contém metadados de origem, base do tronco, largura estimada do tronco, limite copa/tronco e máscara de opacidade em células de 4 px. Execute `npm run assets` depois de alterar os sheets.
+---
 
-O script de capturas grava em `shots/after/`. Pode-se escolher o rótulo, seeds, zooms e lista de biomas:
+## 🚀 Como Executar o Jogo
 
-```bash
-npm run shots -- --label=after --seeds=42891,83472,19453 --zooms=2,1
-```
+### Pré-requisitos
+- [Node.js](https://nodejs.org/) (versão 20 ou superior)
+- Gerenciador de pacotes npm (já incluso no Node.js)
 
-Para capturas de referência anteriores a uma mudança, faça checkout da versão anterior e execute `npm run shots -- --label=before`. O script não fabrica uma linha de base retroativamente.
+### Instalação e Execução
 
-## Estrutura principal
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/NycolasQG-DEV/Grimoire-awakening-rpg.git
+   cd Grimoire-awakening-rpg
+   ```
 
-- `src/game/terrainGenerator.ts`: amostragem de mundo, lagos/rios, seleção de bioma e colocação determinística de props.
-- `src/game/config/biomes.ts`: paletas centrais e identificação dos biomas.
-- `src/game/config/treeSpeciesByBiome.ts`: pesos de espécies por bioma.
-- `src/game/systems/occlusionSystem.ts`: teste puro de oclusão pela máscara alfa e interpolação temporal.
-- `src/game/scenes/BootScene.ts`: carregamento de assets e criação do atlas de chão colorido.
-- `src/game/scenes/TerrainScene.ts`: chunks, câmera, player, minimapa, HUD e renderização dos props.
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   ```
 
-## Materiais de chão e biomas
+3. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
 
-O atlas de chão é montado a partir de `public/assets/tilesets/Floors_Tiles.png`, sem gerar blocos de cor artificiais. Os dez biomas terrestres usam apenas os materiais que existem no tileset: grama (com recoloração HSL para os biomas verdes), cascalho, terra, areia e neve. Praia e Terras Secas usam areia; Montanha Rochosa usa cascalho; Pântano usa terra; Tundra usa neve; os biomas florestais e planícies usam grama. Cada bioma tem seis variantes de tile, escolhidas deterministicamente por posição e seed.
+4. **Abra no seu navegador:**
+   Acesse a URL exibida no terminal (normalmente `http://localhost:5173`).
 
-O script `npm run assets` também acrescenta ao `Floors_Tiles.png` um bloco 5×4 de areia lisa no espaço vazio do atlas, copiando as variações de areia já existentes para o novo conjunto dedicado.
+---
 
-## Controles
+## 🛠️ Tecnologias Utilizadas
 
-- WASD ou setas: movimento.
-- Shift: correr.
-- M: abrir/fechar minimapa.
-- R ou Espaço: gerar outro mundo.
-- Roda do mouse: zoom inteiro entre 1× e 4×.
-- F2: mostrar/ocultar informação do bioma.
-
-No modo de desenvolvimento, `window.__GAME_DEBUG__` disponibiliza `teleportToBiome(nome)`, `teleport(x, y)`, `setZoom(n)`, `biomeAt(x, y)`, `regenerate(seed)` e `stats()` para testes automatizados.
-
-## Segurança e arquivos gerados
-
-Não coloque `.env`, chaves de API ou outros segredos no repositório. Use variáveis de ambiente locais e mantenha `.env` ignorado pelo Git. `dist/`, `node_modules/` e capturas de teste também não devem ser versionados.
+- **[Phaser 4](https://phaser.io/):** Motor de física, câmeras, tilemaps e renderização 2D.
+- **[React 19](https://react.dev/):** Interface de usuário e overlays.
+- **[TypeScript](https://www.typescriptlang.org/):** Tipagem estática robusta em todo o código-fonte.
+- **[Vite](https://vite.dev/):** Bundler ultrarrápido para desenvolvimento e build.
