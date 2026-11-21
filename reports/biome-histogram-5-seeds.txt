@@ -1,0 +1,60 @@
+
+Seed 42891 — 20.000 pontos; terra: 11.636
+praia                       439    3.77% da terra
+planície                   1351   11.61% da terra
+floresta temperada         1920   16.50% da terra
+bosque outonal             1558   13.39% da terra
+taiga                      1173   10.08% da terra
+floresta ancestral          988    8.49% da terra
+pântano                     512    4.40% da terra
+terras secas                438    3.76% da terra
+montanha rochosa           1521   13.07% da terra
+tundra                     1736   14.92% da terra
+
+Seed 83472 — 20.000 pontos; terra: 10.689
+praia                       421    3.94% da terra
+planície                   1242   11.62% da terra
+floresta temperada         1776   16.62% da terra
+bosque outonal             1215   11.37% da terra
+taiga                      1368   12.80% da terra
+floresta ancestral         1040    9.73% da terra
+pântano                     546    5.11% da terra
+terras secas                621    5.81% da terra
+montanha rochosa           1120   10.48% da terra
+tundra                     1340   12.54% da terra
+
+Seed 19453 — 20.000 pontos; terra: 10.826
+praia                       344    3.18% da terra
+planície                   1065    9.84% da terra
+floresta temperada         1661   15.34% da terra
+bosque outonal             1627   15.03% da terra
+taiga                      1348   12.45% da terra
+floresta ancestral          959    8.86% da terra
+pântano                     481    4.44% da terra
+terras secas                444    4.10% da terra
+montanha rochosa           1188   10.97% da terra
+tundra                     1709   15.79% da terra
+
+Seed 76109 — 20.000 pontos; terra: 10.776
+praia                       407    3.78% da terra
+planície                   1183   10.98% da terra
+floresta temperada         1545   14.34% da terra
+bosque outonal             1650   15.31% da terra
+taiga                      1322   12.27% da terra
+floresta ancestral          890    8.26% da terra
+pântano                     393    3.65% da terra
+terras secas                647    6.00% da terra
+montanha rochosa           1111   10.31% da terra
+tundra                     1628   15.11% da terra
+
+Seed 37291 — 20.000 pontos; terra: 11.311
+praia                       419    3.70% da terra
+planície                   1163   10.28% da terra
+floresta temperada         1559   13.78% da terra
+bosque outonal             2151   19.02% da terra
+taiga                      1203   10.64% da terra
+floresta ancestral          995    8.80% da terra
+pântano                     668    5.91% da terra
+terras secas                436    3.85% da terra
+montanha rochosa           1125    9.95% da terra
+tundra                     1592   14.07% da terra
